@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🛒 Mahsulot Qidirish</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex justify-center items-center">
+
+  <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+    <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">🛍 Mahsulotlar Qidiruvi</h2>
+
+    <input 
+      type="text"
+      id="searchInput"
+      placeholder="Mahsulot nomini kiriting..."
+      class="w-full p-3 border rounded-lg focus:outline-none focus:ring focus:ring-blue-300 mb-4"
+      onkeyup="filterProducts()"
+    >
+
+    <ul id="productList" class="space-y-2 text-gray-700">
+      <li class="p-2 bg-gray-200 rounded">🍎 Olma</li>
+      <li class="p-2 bg-gray-200 rounded">🍌 Banan</li>
+      <li class="p-2 bg-gray-200 rounded">🍊 Apelsin</li>
+      <li class="p-2 bg-gray-200 rounded">🍇 Uzum</li>
+      <li class="p-2 bg-gray-200 rounded">🍉 Tarvuz</li>
+      <li class="p-2 bg-gray-200 rounded">🥕 Sabzi</li>
+    </ul>
+  </div>
+
+  <script>
+    function filterProducts() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const items = document.querySelectorAll("#productList li");
+
+      items.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(input) ? "block" : "none";
+      });
+    }
+  </script>
+
+</body>
+</html>
